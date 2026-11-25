@@ -126,43 +126,36 @@
             }
             const iconStyles=$('#hugeicons-css');
             iconStyles?.addEventListener('load',enableIconFont);enableIconFont();
-            // Use a stable MP4 URL. No temporary download API or external page.
+            // Native progressive MP4: never abort slow mobile networks on a fixed timer.
             const videoConfig=window.ARENA_CONTENT.video;
-            const video=$('#guide-video'), startVideo=$('#video-start'), videoMessage=$('#video-message');
-            let videoLoading=false, videoTimer;
-            function setVideoState(loading){
-                videoLoading=loading;startVideo.disabled=loading;
-                clearTimeout(videoTimer);
-            }
-            function videoUnavailable(message){
-                setVideoState(false);video.hidden=true;startVideo.hidden=false;
-                videoMessage.textContent=typeof message==='string'?message:'Видео временно недоступно. Попробуйте ещё раз.';
-            }
-            startVideo.onclick=()=>{
-                if(videoLoading)return;
+            const video=$('#guide-video'), startVideo=$('#video-start'), videoMessage=$('#video-message'), videoRetry=$('#video-retry');
+            let videoAttempt=0, videoTimer=0, restoreTime=0, hasPlayed=false;
+            const stopVideoTimer=()=>{clearTimeout(videoTimer);videoTimer=0};
+            function showVideoMessage(message,retry=false){videoMessage.textContent=message;videoRetry.hidden=!retry;}
+            function watchVideoLoad(){stopVideoTimer();videoTimer=setTimeout(()=>{if(!video.error&&!video.ended&&video.readyState<3)showVideoMessage('Видео ещё загружается. На медленном соединении это может занять больше времени.',true);},15000);}
+            function videoUnavailable(message){stopVideoTimer();startVideo.disabled=false;video.hidden=true;startVideo.hidden=false;showVideoMessage(message,true);}
+            function videoErrorMessage(){switch(video.error?.code){case 1:return 'Загрузка прервана. Попробуйте ещё раз.';case 2:return 'Ошибка сети при загрузке видео. Проверьте соединение и повторите попытку.';case 3:return 'Браузер не смог декодировать видео.';case 4:return 'Браузер не смог открыть источник видео. Возможна проблема формата или сервера.';default:return 'Видео не удалось открыть. Попробуйте ещё раз.';}}
+            function playVideo(){
+                const attempt=++videoAttempt;stopVideoTimer();hasPlayed=false;
                 const raw=String(videoConfig.url||'').trim();
                 if(!raw){videoUnavailable('Видео ещё подключается. Попробуйте позже.');return;}
-                let url;
-                try{
-                    url=new URL(raw,location.href);
-                    if(!(url.protocol==='https:'||(url.origin===location.origin&&url.protocol==='http:')||(url.protocol==='file:'&&location.protocol==='file:')))throw Error();
-                }catch{videoUnavailable('Видео временно недоступно.');return;}
-                setVideoState(true);
-                videoMessage.textContent='Загружаем видео…';
-                video.hidden=false;startVideo.hidden=true;
-                video.src=url.href;
-                videoTimer=setTimeout(()=>{if(videoLoading){video.pause();video.removeAttribute('src');video.load();videoUnavailable('Видео не ответило. Попробуйте ещё раз.');}},30000);
-                // Call play during the actual click, including Safari/iOS.
-                video.play().catch(error=>{
-                    if(error.name==='NotAllowedError'){setVideoState(false);videoMessage.textContent='Нажмите кнопку воспроизведения в плеере.';}
-                    else if(error.name!=='AbortError')videoUnavailable();
-                });
-            };
-            video.addEventListener('error',()=>{if(video.hasAttribute('src'))videoUnavailable()});
-            video.addEventListener('loadedmetadata',()=>{setVideoState(false);videoMessage.textContent=''});
-            video.addEventListener('playing',()=>{setVideoState(false);videoMessage.textContent=''});
-            video.addEventListener('loadedmetadata',()=>{try{const t=Number(localStorage.getItem('arena-video-time'));if(t>0&&t<video.duration-5)video.currentTime=t}catch{}})
-            video.addEventListener('pause',()=>{try{localStorage.setItem('arena-video-time',String(video.currentTime))}catch{}})
+                let url;try{url=new URL(raw,location.href);if(!(url.protocol==='https:'||(url.origin===location.origin&&url.protocol==='http:')||(url.protocol==='file:'&&location.protocol==='file:')))throw Error();}catch{videoUnavailable('Некорректный адрес видео.');return;}
+                restoreTime=0;try{restoreTime=Number(localStorage.getItem('arena-video-time'))||0}catch{}
+                video.hidden=false;startVideo.hidden=true;startVideo.disabled=false;
+                showVideoMessage('Загружаем видео…');
+                video.setAttribute('playsinline','');video.setAttribute('webkit-playsinline','');video.playsInline=true;video.controls=true;video.preload='metadata';
+                video.src=url.href;video.load();watchVideoLoad();
+                // No async URL lookup: play() is invoked during the actual tap.
+                const result=video.play();if(result&&typeof result.catch==='function')result.catch(error=>{if(attempt!==videoAttempt||error.name==='AbortError')return;if(error.name==='NotAllowedError'){stopVideoTimer();showVideoMessage('Нажмите ▶ в самом плеере для запуска.',true);}else if(video.error){videoUnavailable(videoErrorMessage());}else{stopVideoTimer();showVideoMessage('Не удалось начать воспроизведение. Нажмите ▶ или повторите загрузку.',true);}});
+            }
+            startVideo.onclick=playVideo;videoRetry.onclick=playVideo;
+            video.addEventListener('error',()=>{if(video.hasAttribute('src')&&video.error)videoUnavailable(videoErrorMessage())});
+            video.addEventListener('waiting',()=>{if(!video.paused){showVideoMessage('Буферизация видео…');watchVideoLoad()}});
+            video.addEventListener('stalled',()=>{if(!video.ended){showVideoMessage('Ожидаем данные от сервера…',true);watchVideoLoad()}});
+            video.addEventListener('canplay',()=>{stopVideoTimer();showVideoMessage('')});
+            video.addEventListener('playing',()=>{stopVideoTimer();showVideoMessage('');if(!hasPlayed){hasPlayed=true;const t=restoreTime;restoreTime=0;if(Number.isFinite(t)&&t>0&&t<video.duration-5&&video.currentTime<2){try{video.currentTime=t}catch{}}}});
+            video.addEventListener('pause',()=>{if(hasPlayed&&Number.isFinite(video.duration)&&!video.error){try{localStorage.setItem('arena-video-time',String(video.ended?0:video.currentTime))}catch{}}});
+
 			let toastTimer
 			function toast(msg) {
 				$('#toast').textContent = msg
