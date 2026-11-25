@@ -6,7 +6,8 @@ window.ARENA_CONTENT = {
   // Для общего счётчика: выполните отдельный SQL-файл Arena-Guide-supabase-views.sql в Supabase SQL Editor, затем заполните URL проекта и публичный publishable/anon key. Не используйте service_role key.
   views: { url: "", key: "" },
   video: {
-    // Публичный MP4 из GitHub Releases.
+    // HLS для Safari/iPhone; MP4 из GitHub Releases — резерв и ПК.
+    hlsUrl: './assets/media/index.m3u8',
     url: 'https://github.com/Snoxc/arena-guide/releases/download/video-v1/arena-guide.mp4',
     // Добавьте реальные таймкоды после просмотра видео, например:
     // chapters: [{ time: 0, title: 'Вступление' }, { time: 75, title: 'Регистрация' }],
@@ -204,6 +205,7 @@ window.ARENA_CONTENT = {
     {q:'Можно ли читать инструкцию без интернета?', a:'После первого успешного кеширования сайт доступен офлайн в поддерживаемых браузерах. Видео и внешние ресурсы требуют подключения.'}
   ],
   updates: [
+    {date: "25.11.2026", title: "v5.10.5 — HLS для iPhone", text: "Поддержка потокового видео с сайта и резервного MP4."},
     {date: "25.11.2026", title: "v5.10.4 — Очистка проекта", text: "Удалены лишние файлы и обновлён кеш сайта. Функциональность сохранена."},
     {date: "25.11.2026", title: "v5.10.3 — Мобильный плеер", text: "Убрано принудительное прерывание медленной загрузки, улучшены повторное подключение и сообщения об ошибках."},
     {date: "25.11.2026", title: "v5.10.2 — Видеоурок", text: "Подключена ссылка GitHub Releases, уточнена длительность видео: 28:08."},
