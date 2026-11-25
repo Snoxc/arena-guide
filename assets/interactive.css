@@ -530,3 +530,6 @@ body.gallery-open{overflow:hidden}
 
 /* Video recovery */
 .video-fallback{margin-top:10px;background:var(--soft);color:var(--accent);text-decoration:none}.video-fallback[hidden]{display:none!important}.video-start:disabled{opacity:.75;cursor:wait}.video-fallback:hover{background:var(--note);text-decoration:none}
+
+/* v5.10.6 — rounded mobile header; leave popovers unclipped. */
+@media screen and (max-width:900px){.header{border-radius:0 0 14px 14px}}
