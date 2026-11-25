@@ -98,7 +98,7 @@ const video=$('#guide-video');let pendingSeek=null,lastSaved=0;const saveVideo=(
 for(const t of cfg.video.chapters.filter(t=>Number.isFinite(t.time)&&t.time>=0).sort((a,b)=>a.time-b.time)){const b=make('button','action timecode'),min=Math.floor(t.time/60),sec=Math.floor(t.time%60);b.append(make('span','',`${min}:${String(sec).padStart(2,'0')}`),make('span','',t.title));b.onclick=()=>{if(video.readyState>=1){video.currentTime=Math.min(t.time,Math.max(0,video.duration-.1));video.play().catch(()=>{})}else{pendingSeek=t.time;$('#video-start').click()}};$('#timecodes').append(b)}$('#video-chapters').hidden=!$('#timecodes').children.length;
 // Mobile dock remains visible during scrolling.
 // Auto theme follows device only until the user manually selects a theme.
-matchMedia('(prefers-color-scheme: dark)').addEventListener('change',e=>{try{if(!localStorage.getItem('arena-theme'))applyTheme(e.matches)}catch{applyTheme(e.matches)}});
+arenaWatchMedia(matchMedia('(prefers-color-scheme: dark)'),e=>{try{if(!localStorage.getItem('arena-theme'))applyTheme(e.matches)}catch{applyTheme(e.matches)}});
 // PWA, cache status and install prompt. Offline video is deliberately excluded.
 let installEvent;addEventListener('beforeinstallprompt',e=>{e.preventDefault();installEvent=e;$('#install-app').hidden=false});$('#install-app').onclick=async()=>{if(installEvent){await installEvent.prompt();installEvent=null;$('#install-app').hidden=true}};addEventListener('appinstalled',()=>{$('#install-app').hidden=true});if(navigator.serviceWorker&&location.protocol!=='file:'){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
 // Hash links from a copied URL must reveal a hidden prompt/FAQ.
