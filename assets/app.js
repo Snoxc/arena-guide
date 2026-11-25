@@ -126,49 +126,41 @@
             }
             const iconStyles=$('#hugeicons-css');
             iconStyles?.addEventListener('load',enableIconFont);enableIconFont();
+            // Use a stable MP4 URL. No temporary download API or external page.
             const videoConfig=window.ARENA_CONTENT.video;
             const video=$('#guide-video'), startVideo=$('#video-start'), videoMessage=$('#video-message');
-            const videoFallback=$('#video-fallback');
-            let videoLoading=false;
-            if(videoConfig.yandexPublicUrl)videoFallback.href=videoConfig.yandexPublicUrl;
-            async function resolveVideoUrl(){
-                if(!videoConfig.yandexPublicUrl)return videoConfig.url;
-                const endpoint=new URL('https://cloud-api.yandex.net/v1/disk/public/resources/download');
-                endpoint.searchParams.set('public_key',videoConfig.yandexPublicUrl);
-                const controller=new AbortController();
-                const timer=setTimeout(()=>controller.abort(),12000);
-                try{
-                    const response=await fetch(endpoint.href,{signal:controller.signal,cache:'no-store',credentials:'omit'});
-                    if(!response.ok)throw new Error('HTTP '+response.status);
-                    const data=await response.json();
-                    const target=new URL(data.href);
-                    if(target.protocol!=='https:')throw new Error('Invalid video URL');
-                    return target.href;
-                }finally{clearTimeout(timer)}
+            let videoLoading=false, videoTimer;
+            function setVideoState(loading){
+                videoLoading=loading;startVideo.disabled=loading;
+                clearTimeout(videoTimer);
             }
-            function videoUnavailable(){
-                video.hidden=true;startVideo.hidden=false;
-                videoMessage.textContent='Не удалось загрузить видео. Попробуйте ещё раз.';
-                videoFallback.hidden=!videoConfig.yandexPublicUrl;
+            function videoUnavailable(message){
+                setVideoState(false);video.hidden=true;startVideo.hidden=false;
+                videoMessage.textContent=typeof message==='string'?message:'Видео временно недоступно. Попробуйте ещё раз.';
             }
-            startVideo.onclick=async()=>{
+            startVideo.onclick=()=>{
                 if(videoLoading)return;
-                videoLoading=true;startVideo.disabled=true;
-                videoFallback.hidden=true;
-                videoMessage.textContent='Подключаем видео…';
+                const raw=String(videoConfig.url||'').trim();
+                if(!raw){videoUnavailable('Видео ещё подключается. Попробуйте позже.');return;}
+                let url;
                 try{
-                    const url=await resolveVideoUrl();
-                    video.src=url;
-                    video.hidden=false;startVideo.hidden=true;
-                    videoMessage.textContent='';
-                    try{await video.play()}catch(error){
-                        if(!video.error && !video.hidden)videoMessage.textContent='Нажмите кнопку воспроизведения в плеере.';
-                    }
-                }catch{videoUnavailable()}
-                finally{videoLoading=false;startVideo.disabled=false}
+                    url=new URL(raw,location.href);
+                    if(!(url.protocol==='https:'||(url.origin===location.origin&&url.protocol==='http:')||(url.protocol==='file:'&&location.protocol==='file:')))throw Error();
+                }catch{videoUnavailable('Видео временно недоступно.');return;}
+                setVideoState(true);
+                videoMessage.textContent='Загружаем видео…';
+                video.hidden=false;startVideo.hidden=true;
+                video.src=url.href;
+                videoTimer=setTimeout(()=>{if(videoLoading){video.pause();video.removeAttribute('src');video.load();videoUnavailable('Видео не ответило. Попробуйте ещё раз.');}},30000);
+                // Call play during the actual click, including Safari/iOS.
+                video.play().catch(error=>{
+                    if(error.name==='NotAllowedError'){setVideoState(false);videoMessage.textContent='Нажмите кнопку воспроизведения в плеере.';}
+                    else if(error.name!=='AbortError')videoUnavailable();
+                });
             };
-            video.addEventListener('error',videoUnavailable);
-            video.addEventListener('playing',()=>{videoMessage.textContent='';videoFallback.hidden=true});
+            video.addEventListener('error',()=>{if(video.hasAttribute('src'))videoUnavailable()});
+            video.addEventListener('loadedmetadata',()=>{setVideoState(false);videoMessage.textContent=''});
+            video.addEventListener('playing',()=>{setVideoState(false);videoMessage.textContent=''});
             video.addEventListener('loadedmetadata',()=>{try{const t=Number(localStorage.getItem('arena-video-time'));if(t>0&&t<video.duration-5)video.currentTime=t}catch{}})
             video.addEventListener('pause',()=>{try{localStorage.setItem('arena-video-time',String(video.currentTime))}catch{}})
 			let toastTimer
