@@ -45,3 +45,17 @@ window.arenaWatchMedia = function (query, listener) {
   window.addEventListener('blur', clear);
   document.addEventListener('visibilitychange', clear);
 })();
+
+// Programmatic focus after a tap must not look like keyboard navigation.
+(() => {
+  const root = document.documentElement;
+  const pointer = () => root.classList.add('pointer-input');
+  if ('PointerEvent' in window) document.addEventListener('pointerdown', pointer, true);
+  else {
+    document.addEventListener('touchstart', pointer, {capture:true, passive:true});
+    document.addEventListener('mousedown', pointer, true);
+  }
+  document.addEventListener('keydown', e => {
+    if (['Tab','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) root.classList.remove('pointer-input');
+  }, true);
+})();
