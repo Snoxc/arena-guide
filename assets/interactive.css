@@ -1,6 +1,6 @@
 /* Interactive Edition — overrides and new components */
 .feature-card{background:var(--paper);border-radius:var(--radius,15px);padding:28px 30px;margin-bottom:12px;min-width:0;scroll-margin-top:12px}.feature-card h2{font-size:clamp(23px,2.5vw,28px);line-height:1.25;margin:5px 0 12px;font-weight:800;letter-spacing:-.6px}.feature-card h3{font-size:16px;margin:12px 0 7px}.feature-card>p,.muted,#learning-label{color:var(--muted);font-size:14px;margin:8px 0 15px}.feature-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.progress-number{font-size:30px;line-height:1;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}.learning-meter{height:7px;border-radius:20px;overflow:hidden;background:var(--note);margin:15px 0 8px}.learning-meter i{display:block;height:100%;background:var(--accent);border-radius:20px;width:0;transition:width .25s ease}.learning-actions,.lesson-actions,.video-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.action{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:9px 13px;border:0;background:var(--note);color:var(--text);border-radius:10px;text-decoration:none;font:inherit;font-size:13px;font-weight:700;cursor:pointer;line-height:1.35;text-align:center}.action:hover{background:var(--soft);color:var(--accent)}.action[aria-pressed=true]{background:var(--soft);color:var(--accent)}.action .ui-icon,.action .ui-icon svg{width:18px;height:18px}.action .ui-icon i{font-size:18px}.lesson-actions{margin-top:24px;padding-top:14px;border-top:1px solid var(--line)}.lesson-actions button{flex:0 1 auto}.learning-details{margin-top:18px}.learning-details summary,#faq-list summary{cursor:pointer;font-weight:700;line-height:1.5;padding:12px 0}.lesson-row{display:flex;align-items:center;gap:11px;min-height:44px;padding:5px 0;border-top:1px solid var(--line);font-size:14px}.lesson-row input{width:20px;height:20px;flex:none;accent-color:var(--accent);cursor:pointer}.lesson-row a{color:var(--text);text-decoration:none;flex:1;min-width:0}.lesson-row a:hover{color:var(--accent)}.lesson-row .action{min-width:40px;padding:8px;min-height:40px}.nav-complete{margin-left:auto;color:var(--accent);font-size:15px!important}.prompt-filters{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}.prompt-filter{border:0;padding:8px 12px;min-height:40px;border-radius:22px;background:var(--note);color:var(--muted);font:inherit;font-size:13px;font-weight:700;cursor:pointer}.prompt-filter[aria-pressed=true]{background:var(--button);color:var(--button-text)}.prompt-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.prompt-card{min-width:0;background:var(--note);padding:16px;border-radius:12px;display:flex;flex-direction:column;gap:8px;scroll-margin-top:12px}.prompt-card>small{font-size:11px;color:var(--muted);font-weight:800}.prompt-card h3{margin:0;line-height:1.4}.prompt-card p{font-size:13px;line-height:1.65;margin:0;color:var(--muted);flex:1;white-space:pre-wrap}.prompt-card .action{background:var(--paper);align-self:flex-start}.prompt-card .action:hover{background:var(--soft)}#faq-list details{border-top:1px solid var(--line);padding:3px 0;scroll-margin-top:12px}#faq-list details p{font-size:14px;line-height:1.7;margin:0 0 12px}#faq-list details a{display:inline-block;font-size:13px;margin:0 0 12px}.update-item{padding:13px 0;border-top:1px solid var(--line)}.update-item small{color:var(--muted);font-size:12px}.update-item h3{margin:4px 0}.update-item p{margin:4px 0;font-size:14px;color:var(--muted)}.video-tools{margin-top:14px}.speed-label{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:13px;font-weight:700}.speed-label select{min-height:44px;padding:6px 9px;border:0;border-radius:9px;background:var(--note);color:var(--text);font:inherit}.timecode{display:flex;gap:12px;width:100%;justify-content:flex-start;margin:5px 0}.timecode span:first-child{font-variant-numeric:tabular-nums;color:var(--accent)}.search-hint{font-size:11px;color:var(--muted);padding:9px 12px;border-top:1px solid var(--line)}.search-shortcuts{display:flex;flex-wrap:wrap;gap:8px;padding:7px 10px 12px}.search-shortcuts button{min-height:36px;padding:7px 12px;border:0;border-radius:18px;background:var(--note);color:var(--text);cursor:pointer;font:inherit;font-size:13px;font-weight:700;transition:background .15s,color .15s,transform .15s}.search-shortcuts button:active{transform:scale(.98)}.search-result:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}.gallery-tools{display:flex;align-items:center;justify-content:center;gap:7px;margin:4px 0 10px}.gallery-tools span{min-width:60px;text-align:center;font-variant-numeric:tabular-nums;font-size:13px}.gallery-tools button{font-size:24px;line-height:1}.image-scroll{max-height:64vh;max-height:64dvh;overscroll-behavior:contain}.image-scroll img{max-width:none!important;transform-origin:top left;cursor:default}.chapter .media,.chapter .media img,.intro .media{border:0;box-shadow:none;background:none}.chapter .media img{border-radius:9px}.feature-card [hidden]{display:none!important}.feature-card:empty{display:none!important}.sidebar .nav-items>a>span:first-child{min-width:24px}.sidebar .nav-items>a>span:first-child .ui-icon{width:19px;height:19px}.sidebar .nav-items>a>span:first-child .ui-icon svg{width:19px;height:19px}.rail-card{overflow-wrap:anywhere}
-@media(max-width:900px){.feature-card{padding:24px}.search-hint{display:none}}@media(max-width:560px){.feature-card{padding:21px 17px;margin-bottom:10px}.prompt-list{grid-template-columns:1fr}.feature-head{align-items:flex-start}.progress-number{font-size:25px}.lesson-actions .action{flex:1 1 130px}.learning-actions .action{flex:1 1 auto}.video-tools .action{font-size:12px}.gallery-tools{gap:4px}.gallery-tools button{width:40px;height:40px}.search-pop{max-height:calc(100vh - 170px);max-height:calc(100dvh - 170px)}}@media(prefers-reduced-motion:reduce){.bottom-nav,.learning-meter i{transition:none}}@media print{.lesson-actions,#learning,#community,#site-updates,.prompt-filters,.prompt-card .action{display:none!important}.feature-card{background:white;color:black;padding:10px 0}.prompt-list{display:block}.prompt-card{break-inside:avoid}}
+@media(max-width:900px){.feature-card{padding:24px}.search-hint{display:none}}@media(max-width:560px){.feature-card{padding:21px 17px;margin-bottom:10px}.prompt-list{grid-template-columns:1fr}.feature-head{align-items:flex-start}.progress-number{font-size:25px}.lesson-actions .action{flex:1 1 130px}.learning-actions .action{flex:1 1 auto}.video-tools .action{font-size:12px}.gallery-tools{gap:4px}.gallery-tools button{width:40px;height:40px}.search-pop{max-height:calc(100vh - 170px);max-height:calc(100dvh - 170px)}}@media print{.lesson-actions,#learning,#community,#site-updates,.prompt-filters,.prompt-card .action{display:none!important}.feature-card{background:white;color:black;padding:10px 0}.prompt-list{display:block}.prompt-card{break-inside:avoid}}
 
 /* v5.1 — clean scrolling and isolated search overlay. */
 html,body,.search-pop,.lightbox,.image-scroll{scrollbar-width:none;-ms-overflow-style:none}
@@ -23,7 +23,7 @@ body.search-open .search-pop{overscroll-behavior:contain;box-shadow:0 12px 36px 
 .back-top.visible{visibility:visible}.back-top:hover{transform:translateY(-3px)}.back-top .ui-icon{width:21px;height:21px}.back-top .ui-icon i{font-size:21px}
 @media(max-width:900px){.bottom-nav{transform:translateX(-50%);opacity:1;pointer-events:auto;bottom:calc(12px + env(safe-area-inset-bottom));z-index:45}.back-top{width:46px;height:46px;padding:0;right:max(14px,env(safe-area-inset-right));bottom:calc(88px + env(safe-area-inset-bottom))}.back-top-label{display:none}.shell{padding-bottom:calc(112px + env(safe-area-inset-bottom))}}
 body.search-open .back-top,body.menu-open .back-top{visibility:hidden;pointer-events:none}
-@media(prefers-reduced-motion:reduce){.back-top{transition:none}.back-top:hover{transform:none}}
+
 @media print{.back-top,.bottom-nav{display:none!important}}
 
 /* v5.4 — compact learning progress and header favorites */
@@ -101,7 +101,7 @@ body.dark{--complete:#a9cfff;--complete-bg:#27374c;--complete-border:#435c7c;--f
 @media(max-width:900px){.sidebar{padding-right:9px;margin-right:0}.brand-symbol,body.dark .brand-symbol{width:40px;height:40px}}
 @media(max-width:600px){.lesson-actions{gap:8px}.lesson-actions .action{height:48px;min-height:48px;padding:8px 7px;gap:6px;font-size:13px}.lesson-actions .action .lesson-label>.label-wide{display:none}.lesson-actions .action .lesson-label>.label-compact{display:inline}.lesson-actions .action > .ui-icon{width:18px;height:18px;flex-basis:18px}.brand-symbol,body.dark .brand-symbol{width:36px;height:36px}}
 @media(max-width:350px){.lesson-actions .action{font-size:12px;gap:4px;padding:7px 5px}}
-@media(prefers-reduced-motion:reduce){.brand-symbol::before,.brand:hover .brand-symbol::before,.lesson-actions .action.action-pop::after,.lesson-actions .action.action-pop>.ui-icon{animation:none!important}.brand:hover .brand-symbol,.brand:active .brand-symbol,.lesson-actions .action:hover,.lesson-actions .action:active,.icon-button:active,.bottom-nav a:active,.bottom-nav button:active,.quick-start>a:active,.button:active,.prompt-filter:active{transform:none!important}}
+
 
 /* v5.7 — grouped desktop contents, expanded mobile drawer */
 .sidebar nav{display:flex;flex-direction:column;gap:19px;padding:3px 0 8px}
@@ -130,14 +130,14 @@ body.dark{--complete:#a9cfff;--complete-bg:#27374c;--complete-border:#435c7c;--f
  .sidebar .nav-items>a{min-height:46px;padding:10px 11px}
  .sidebar .nav-items>a.active{background:var(--note)}
 }
-@media(prefers-reduced-motion:reduce){.nav-chevron,.nav-group-toggle{transition:none}}
+
 
 /* v5.7.2 — reveal the group chevron only on its heading. */
 @media (min-width:901px) and (hover:hover) and (pointer:fine){
  .nav-group-toggle .nav-chevron{opacity:0;transition:opacity .16s ease,transform .2s ease}
  .nav-group-toggle:hover .nav-chevron,.nav-group-toggle:focus-visible .nav-chevron{opacity:1}
 }
-@media (prefers-reduced-motion:reduce){.nav-group-toggle .nav-chevron{transition:none!important}}
+
 
 /* v5.7.3 — aligned mobile drawer and fixed heading */
 .drawer-header{display:none}
@@ -168,7 +168,7 @@ body.dark{--complete:#a9cfff;--complete-bg:#27374c;--complete-border:#435c7c;--f
 .chapter-views{display:inline-flex;align-items:center;justify-content:flex-end;gap:8px;margin-left:auto;min-width:auto;height:44px;padding:0 4px 0 10px;color:var(--muted);font-weight:700;font-size:14px;line-height:1;font-variant-numeric:tabular-nums}
 @media(hover:hover) and (pointer:fine){.chapter-tool:hover{color:var(--text);background:var(--note)}.chapter-tool.lesson-done:hover{color:var(--complete)}.chapter-tool.lesson-save:hover{color:var(--favorite)}}
 @media(max-width:560px){.chapter-toolbar{margin:17px 0 -5px;padding-top:6px;gap:3px}}
-@media(prefers-reduced-motion:reduce){.chapter-tool,.chapter-tool .ui-icon{animation:none!important;transition:none!important;transform:none!important}}
+
 @media print{.chapter-toolbar{display:none!important}}
 
 /* v5.8.1 — compact visual hover with accessible full-size hit targets. */
@@ -199,7 +199,7 @@ body.dark{--chapter-tip-bg:#383838;--chapter-tip-fg:#f7f7f7;--share-hover:#8ebaf
 }
 @media(hover:none){.chapter-tool:not(:active):not(:focus-visible)::before{opacity:0}}
 @media(max-width:560px){.chapter-toolbar{gap:1px}.chapter-toolbar .chapter-tool:nth-child(2)::after{left:0;transform:translate(0,3px)}.chapter-toolbar .chapter-tool:nth-child(2):focus-visible::after{transform:translate(0,0)}}
-@media(prefers-reduced-motion:reduce){.chapter-tool::before,.chapter-toolbar [data-tooltip]::after{transition:none!important}}
+
 
 /* v5.8.2 — consistent local SVG navigation icons. */
 .sidebar #nav-guide>a>.nav-icon-slot{display:grid;place-items:center;width:24px;min-width:24px;flex:0 0 24px;color:var(--muted);line-height:1}
@@ -236,7 +236,7 @@ body.dark .reading-progress .progress{background:linear-gradient(90deg,#709ce4,#
 .update-day{border-top:1px solid var(--line)}.update-day-head{display:flex;align-items:center;gap:12px;min-height:54px;cursor:pointer;list-style:none;padding:10px 6px;border-radius:10px;user-select:none;touch-action:manipulation}.update-day-head::-webkit-details-marker{display:none}.update-day-date{font-size:15px;font-weight:750}.update-day-count{margin-left:auto;color:var(--muted);font-size:12px;font-weight:600}.update-day-head .update-chevron{width:18px;height:18px;color:var(--muted);opacity:1!important;visibility:visible!important;transition:transform .2s;display:inline-grid!important}.update-day[open] .update-chevron{transform:rotate(180deg)}.update-day-body{padding:0 6px 10px}.update-day-body .update-item:first-child{border-top:0}.update-day-head:active{background:var(--note)}
 @media(hover:hover){.update-day-head:hover{background:var(--note)}}
 @media(max-width:560px){.reading-progress,.reading-progress .progress{height:2px}.update-day-head{gap:8px;padding-inline:3px}.update-day-date{font-size:14px}.update-day-count{font-size:11px}}
-@media(prefers-reduced-motion:reduce){.update-chevron{transition:none!important}}@media print{.reading-progress{display:none}}
+@media print{.reading-progress{display:none}}
 
 /* v5.8.9 — compact release dates and incremental prompt library */
 .update-day{padding:6px 0;border-top:1px solid var(--line)}
@@ -250,7 +250,7 @@ body.dark .reading-progress .progress{background:linear-gradient(90deg,#709ce4,#
 .prompt-card p{overflow-wrap:anywhere}.prompt-card h3{overflow-wrap:anywhere}
 #install-app:not([hidden]){margin-top:12px}
 @media(max-width:560px){.update-day-head{padding:10px 9px;gap:7px}.update-day-body{padding-inline:9px}.prompt-pagination{margin-top:12px}}
-@media(prefers-reduced-motion:reduce){.prompt-more{transition:none;transform:none}}
+
 @media print{.prompt-pagination{display:none!important}.prompt-card[hidden]{display:flex!important}}
 
 /* v5.9.0 — unified action geometry and right rail. */
@@ -291,7 +291,7 @@ body.dark .reading-progress .progress{background:linear-gradient(90deg,#709ce4,#
 .rail-row:active,.rail-action:active{transform:scale(.98)}.rail-video:active .rail-play{transform:scale(.92)}
 @media(hover:hover) and (pointer:fine){.right-rail .rail-row:hover{background:var(--note);color:var(--accent)}.rail-row:hover .rail-row-icon{color:var(--accent);background:var(--soft)}.rail-row:hover .rail-row-arrow{color:var(--accent);opacity:1}.rail-video:hover .rail-play{transform:scale(1.08);background:#ffffff38}.right-rail .rail-action:hover{filter:brightness(1.06)}}
 @media(max-width:560px){.chapter-toolbar{gap:1px}.chapter-toolbar .chapter-views{gap:7px;padding-right:2px}}
-@media(prefers-reduced-motion:reduce){.chapter-toolbar .chapter-views,.chapter-toolbar .chapter-views>.ui-icon::before,.rail-row,.rail-action,.rail-play{transition:none!important}}
+
 /* Keep every shortcut reachable on shorter desktop displays. */
 .right-rail{gap:10px;max-height:calc(100vh - 100px);max-height:calc(100dvh - 100px);overflow-y:auto;overflow-x:hidden;scrollbar-width:none;overscroll-behavior:contain;padding-bottom:2px}
 .right-rail::-webkit-scrollbar{display:none;width:0}
@@ -301,7 +301,7 @@ body.dark .reading-progress .progress{background:linear-gradient(90deg,#709ce4,#
 /* v5.9.1 — reversible prompt pagination */
 .prompt-more .ui-icon{transition:transform .18s ease}
 .prompt-more.is-collapse .ui-icon{transform:rotate(180deg)}
-@media(prefers-reduced-motion:reduce){.prompt-more .ui-icon{transition:none}}
+
 
 /* v5.9.2 — guide notice, compact prompt library and FAQ */
 .guide-notice{display:grid;grid-template-columns:42px minmax(0,1fr);gap:14px;padding:19px 21px;margin:0 0 14px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);position:relative;box-shadow:inset 3px 0 0 var(--accent);min-width:0}
@@ -320,7 +320,7 @@ body.dark .reading-progress .progress{background:linear-gradient(90deg,#709ce4,#
 @media(hover:hover) and (pointer:fine){#faq-list summary:hover{background:var(--paper)}.sidebar .nav-items>a:hover{background:var(--note);color:var(--text)}#prompts .prompt-filter:hover{color:var(--accent);border-color:var(--accent)}}
 @media(max-width:900px){.sidebar nav{gap:18px}.sidebar .nav-items>a{min-height:46px}.sidebar .drawer-header{padding-bottom:12px}.sidebar .drawer-header .menu-close{background:var(--note)}.sidebar .nav-group-static{font-size:12px}}
 @media(max-width:560px){.guide-notice{grid-template-columns:32px minmax(0,1fr);gap:10px;padding:15px 13px;margin-bottom:10px}.guide-notice-icon{width:32px;height:32px;border-radius:10px}.guide-notice-icon .ui-icon,.guide-notice-icon .ui-icon svg{width:20px;height:20px}.guide-notice h2{font-size:17px}.guide-notice p{font-size:13px}.notice-link{gap:5px;font-size:12px}.notice-duration{font-size:11px}#prompts .prompt-card{padding:14px}#faq-list details>summary{padding:12px;gap:10px}#faq-list .faq-answer{padding:0 12px 12px}}
-@media(prefers-reduced-motion:reduce){.notice-dot{animation:none}#faq-list .faq-chevron,#faq-list summary,.sidebar .nav-items>a{transition:none}}
+
 @media print{.guide-notice,.prompt-expand,.prompt-copy{display:none!important}#prompts .prompt-body{display:block;overflow:visible}}
 
 
@@ -376,7 +376,7 @@ body.dark .guide-notice{--notice-shimmer:rgba(255,209,159,.12)}
 #faq-list .faq-link{margin-top:12px;padding:9px 12px;border-radius:10px;background:rgba(95,137,217,.12);border:1px solid rgba(107,150,230,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
 
 @media(max-width:560px){.guide-notice{grid-template-columns:40px minmax(0,1fr);gap:12px;padding:16px 14px;border-radius:18px}.guide-notice-icon{width:40px;height:40px;border-radius:14px}.guide-notice h2{font-size:26px;letter-spacing:-.9px;margin:6px 0 8px}.guide-notice p{font-size:14px;line-height:1.65}.notice-link{width:100%;justify-content:flex-start;padding:12px 14px}.prompt-pagination-buttons{grid-template-columns:1fr}.prompt-more,.prompt-less{width:100%}#prompts .prompt-card{padding:15px}#faq-list details>summary{padding:14px 13px;font-size:14px}#faq-list .faq-answer{padding:0 13px 13px}}
-@media(prefers-reduced-motion:reduce){.guide-notice::after,.notice-link,.prompt-more,.prompt-less,#faq-list details::before{animation:none!important;transition:none!important}}
+
 
 /* v5.9.4 — no link underlines on hover, in either theme. */
 a:hover,a:active,a:focus-visible,button:hover,button:active,button:focus-visible {text-decoration:none!important;}
@@ -419,7 +419,7 @@ body.dark{--complete:#72d69a;--complete-bg:#243c2e;--complete-border:#386849}
 button:not(:disabled):not([hidden]),summary{cursor:pointer}button:disabled{cursor:not-allowed}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;text-decoration:none!important}
 @media(max-width:560px){.hero-actions .text-link{padding:8px 10px;min-height:44px}.completed-list{max-height:260px}.completed-link{font-size:13px}.completed-toggle{font-size:13px}}
-@media(prefers-reduced-motion:reduce){.completed-toggle,.completed-link,.completed-chevron,.completed-arrow,.hero-actions .text-link,.hero-actions .primary,.video-start,.back-top{transition:none!important;transform:none!important}.completed-details[open] .completed-chevron{transform:rotate(180deg)!important}.completed-link>.completed-arrow{transform:rotate(-90deg)!important}}
+
 @media print{.completed-details{display:none!important}}
 
 /* v5.9.6 — warm maintenance status, independent from the blue navigation accent. */
@@ -433,13 +433,13 @@ body.dark .guide-notice{--notice-fg:#ffc08a;--notice-bg:#302720;--notice-line:#6
 .guide-notice .notice-link:hover,.guide-notice .notice-link:active{background:var(--notice-hover);color:var(--notice-fg);border-color:var(--notice-fg)}
 .guide-notice .notice-link:focus-visible{outline-color:var(--notice-fg)}
 @media(max-width:560px){.guide-notice .notice-link{width:100%;font-size:12px;gap:5px;justify-content:flex-start}.guide-notice-status{font-size:10px;padding:5px 8px}}
-@media(prefers-reduced-motion:reduce){.guide-notice .notice-link{transform:none!important;transition:none!important}}
+
 
 /* FAQ: exclusive disclosure; keep touch and keyboard feedback visible. */
 #faq-list summary:active{background:var(--soft);color:var(--accent)}
 #faq-list details[open] .faq-answer{animation:faqReveal .2s ease-out}
 @keyframes faqReveal{from{opacity:.4;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
-@media(prefers-reduced-motion:reduce){#faq-list details[open] .faq-answer{animation:none}}
+
 .completed-toggle .completed-chevron,.completed-link .completed-arrow{opacity:1!important;visibility:visible!important}
 
 /* v5.9.7 — compact, image-sized lightbox */
@@ -458,7 +458,7 @@ body.gallery-open{overflow:hidden}
 @media(hover:hover) and (pointer:fine){.lightbox #close-zoom:hover{background:var(--soft);color:var(--accent);transform:scale(1.04)}}
 @keyframes gallery-reveal{from{opacity:0;transform:translateY(7px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:560px){.lightbox{padding:9px;width:calc(var(--gallery-w, 260px) + 18px);border-radius:16px}.lightbox .lightbox-top{margin-bottom:8px;gap:8px;padding-left:3px}.lightbox #image-title{font-size:13px}.lightbox #close-zoom{width:40px;height:40px}.lightbox .image-scroll{border-radius:8px}}
-@media(prefers-reduced-motion:reduce){.lightbox[open]{animation:none}.lightbox #close-zoom{transition:none;transform:none!important}}
+
 
 /* Compact headings and notice copy. */
 .lightbox .lightbox-top #image-title{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;overflow-wrap:normal;line-height:1.45}
@@ -541,11 +541,11 @@ button.is-pressed,a.is-pressed,summary.is-pressed{filter:brightness(.92)}
 .icon-button.is-pressed,.bottom-nav a.is-pressed,.bottom-nav button.is-pressed,.quick-start>a.is-pressed,.search-shortcuts button.is-pressed,.prompt-filter.is-pressed,.completed-link.is-pressed,.completed-toggle.is-pressed{background:var(--note);color:var(--accent)}
 .chapter-tool.is-pressed::before{opacity:1!important;transform:translate(-50%,-50%) scale(1)}
 .chapter-tool.lesson-share.is-pressed{color:var(--share-hover)}
-@media(prefers-reduced-motion:no-preference){
+
  .icon-button.is-pressed,.bottom-nav a.is-pressed,.bottom-nav button.is-pressed,.button.is-pressed,.video-start.is-pressed,.chapter-tool.is-pressed{transform:scale(.96)}
  .brand.is-pressed .brand-symbol{transform:scale(.94)}
  .rail-video.is-pressed .rail-play{transform:scale(1.08)}
-}
+
 .brand:focus-visible .brand-symbol{box-shadow:0 0 0 3px var(--accent)}
 .rail-video:focus-visible .rail-play{background:#ffffff38}
 .header-inner,.header-right,.hero-actions,.notice-link{min-width:0}

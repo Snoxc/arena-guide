@@ -19,7 +19,7 @@
             $('.back-top').addEventListener('click', e => {
                 e.preventDefault();
                 try { if(location.hash) history.replaceState(null,'',location.pathname+location.search); } catch {}
-                window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+                window.scrollTo({top:0,behavior:'smooth'});
             });
 			const observer = new IntersectionObserver(
 				entries => {
@@ -83,7 +83,7 @@
               requestAnimationFrame(()=>{
                 if(!target.hasAttribute('tabindex'))target.setAttribute('tabindex','-1');
                 target.focus({preventScroll:true});
-                target.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+                target.scrollIntoView({block:'start',behavior:'smooth'});
               });
             }
             toggle.onclick=()=>showSearch(panel.hidden);$('#search-close').onclick=()=>showSearch(false);$('#mobile-search').onclick=()=>showSearch(true);shade.onclick=()=>showSearch(false);
