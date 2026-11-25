@@ -527,3 +527,6 @@ body.gallery-open{overflow:hidden}
 .right-rail .rail-card>a.rail-action{padding-inline:11px}
 .header-right>.icon-button{width:44px;height:44px;flex:0 0 44px}
 @media screen and (max-width:560px){.header-right>.icon-button{width:42px;flex-basis:42px}}
+
+/* Video recovery */
+.video-fallback{margin-top:10px;background:var(--soft);color:var(--accent);text-decoration:none}.video-fallback[hidden]{display:none!important}.video-start:disabled{opacity:.75;cursor:wait}.video-fallback:hover{background:var(--note);text-decoration:none}

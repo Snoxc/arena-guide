@@ -126,10 +126,49 @@
             }
             const iconStyles=$('#hugeicons-css');
             iconStyles?.addEventListener('load',enableIconFont);enableIconFont();
-            const VIDEO_URL=window.ARENA_CONTENT.video.url; // Replace with HTTPS URL for external storage.
-            const video=$('#guide-video'), startVideo=$('#video-start'), videoMessage=$('#video-message')
-            startVideo.onclick=()=>{video.hidden=false;startVideo.hidden=true;if(!video.getAttribute('src')||video.error)video.src=VIDEO_URL;video.play().catch(()=>{});videoMessage.textContent=''}
-            video.addEventListener('error',()=>{video.hidden=true;startVideo.hidden=false;videoMessage.textContent='Видео пока недоступно. Попробуйте позже.'})
+            const videoConfig=window.ARENA_CONTENT.video;
+            const video=$('#guide-video'), startVideo=$('#video-start'), videoMessage=$('#video-message');
+            const videoFallback=$('#video-fallback');
+            let videoLoading=false;
+            if(videoConfig.yandexPublicUrl)videoFallback.href=videoConfig.yandexPublicUrl;
+            async function resolveVideoUrl(){
+                if(!videoConfig.yandexPublicUrl)return videoConfig.url;
+                const endpoint=new URL('https://cloud-api.yandex.net/v1/disk/public/resources/download');
+                endpoint.searchParams.set('public_key',videoConfig.yandexPublicUrl);
+                const controller=new AbortController();
+                const timer=setTimeout(()=>controller.abort(),12000);
+                try{
+                    const response=await fetch(endpoint.href,{signal:controller.signal,cache:'no-store',credentials:'omit'});
+                    if(!response.ok)throw new Error('HTTP '+response.status);
+                    const data=await response.json();
+                    const target=new URL(data.href);
+                    if(target.protocol!=='https:')throw new Error('Invalid video URL');
+                    return target.href;
+                }finally{clearTimeout(timer)}
+            }
+            function videoUnavailable(){
+                video.hidden=true;startVideo.hidden=false;
+                videoMessage.textContent='Не удалось загрузить видео. Попробуйте ещё раз.';
+                videoFallback.hidden=!videoConfig.yandexPublicUrl;
+            }
+            startVideo.onclick=async()=>{
+                if(videoLoading)return;
+                videoLoading=true;startVideo.disabled=true;
+                videoFallback.hidden=true;
+                videoMessage.textContent='Подключаем видео…';
+                try{
+                    const url=await resolveVideoUrl();
+                    video.src=url;
+                    video.hidden=false;startVideo.hidden=true;
+                    videoMessage.textContent='';
+                    try{await video.play()}catch(error){
+                        if(!video.error && !video.hidden)videoMessage.textContent='Нажмите кнопку воспроизведения в плеере.';
+                    }
+                }catch{videoUnavailable()}
+                finally{videoLoading=false;startVideo.disabled=false}
+            };
+            video.addEventListener('error',videoUnavailable);
+            video.addEventListener('playing',()=>{videoMessage.textContent='';videoFallback.hidden=true});
             video.addEventListener('loadedmetadata',()=>{try{const t=Number(localStorage.getItem('arena-video-time'));if(t>0&&t<video.duration-5)video.currentTime=t}catch{}})
             video.addEventListener('pause',()=>{try{localStorage.setItem('arena-video-time',String(video.currentTime))}catch{}})
 			let toastTimer
