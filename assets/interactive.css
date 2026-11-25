@@ -587,3 +587,33 @@ html.pointer-input .brand:focus-visible .brand-symbol{box-shadow:0 3px 12px #000
 .demo-badge-dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.8}
 body.dark .demo-badge{color:#a5c9f8;border-color:#46576d;background:linear-gradient(135deg,#303d50,#28313d);box-shadow:inset 0 1px 0 #ffffff08}
 @media(max-width:560px){.demo-badge{padding:3px 8px;font-size:9px;letter-spacing:1px}}
+
+/* v5.10.14 — standalone update notice and ambient hero motion */
+.guide-update-banner{
+ --update-accent:#94501c;--update-copy:#6d5948;--update-edge:#e9d5bd;--update-icon:#f5e6d4;
+ position:relative;isolation:isolate;display:grid;grid-template-columns:40px minmax(0,1fr);align-items:start;gap:14px;
+ padding:20px 24px;margin:0 0 14px;border:1px solid var(--update-edge);border-radius:var(--radius);overflow:hidden;
+ background:linear-gradient(115deg,#fff6eb 0%,#fffaf5 55%,#fff 100%);
+}
+body.dark .guide-update-banner{
+ --update-accent:#f2b77d;--update-copy:#cbbcac;--update-edge:#594635;--update-icon:#443425;
+ background:linear-gradient(115deg,#352b22 0%,#292622 58%,#252525 100%);
+}
+.guide-update-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--update-icon);color:var(--update-accent)}
+.guide-update-icon .ui-icon,.guide-update-icon .ui-icon svg{width:22px;height:22px}.guide-update-icon .ui-icon i{font-size:22px;font-weight:400}
+.guide-update-copy{min-width:0}.guide-update-status{display:flex;align-items:center;gap:7px;color:var(--update-accent);font-size:11px;font-weight:800;line-height:1.4;letter-spacing:.025em}
+.guide-update-status>span{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none;box-shadow:0 0 0 3px var(--update-icon)}
+.guide-update-banner h2{font-size:20px;font-weight:800;line-height:1.3;letter-spacing:-.4px;color:var(--text);margin:5px 0 6px}
+.guide-update-banner p{margin:0;color:var(--update-copy);font-size:14px;line-height:1.65;overflow-wrap:break-word}
+/* Soft blue light travels behind the hero content, never over its text. */
+.hero{isolation:isolate;--hero-motion-light:rgba(75,132,218,.13);--hero-motion-soft:rgba(113,158,230,.07)}
+body.dark .hero{--hero-motion-light:rgba(105,155,231,.18);--hero-motion-soft:rgba(133,167,223,.09)}
+.hero::before{inset:-65% -25%;width:auto;height:auto;border-radius:0;filter:none;pointer-events:none;z-index:0;
+ background:radial-gradient(ellipse at 30% 58%,var(--hero-motion-light),transparent 42%),radial-gradient(ellipse at 75% 36%,var(--hero-motion-soft),transparent 45%);
+ transform:translate3d(-12%,7%,0) rotate(-8deg);animation:heroAmbientFlow 12s ease-in-out infinite alternate}
+.hero::after{pointer-events:none;z-index:0;opacity:.7}
+.hero>*{position:relative;z-index:1}
+@keyframes heroAmbientFlow{0%{transform:translate3d(-12%,7%,0) rotate(-8deg)}50%{transform:translate3d(2%,-6%,0) rotate(3deg)}100%{transform:translate3d(14%,5%,0) rotate(8deg)}}
+@media(max-width:560px){.guide-update-banner{grid-template-columns:32px minmax(0,1fr);gap:11px;padding:15px 14px;margin-bottom:10px}.guide-update-icon{width:32px;height:32px;border-radius:10px}.guide-update-icon .ui-icon,.guide-update-icon .ui-icon svg{width:19px;height:19px}.guide-update-icon .ui-icon i{font-size:19px}.guide-update-banner h2{font-size:18px}.guide-update-banner p{font-size:13px;line-height:1.65}}
+@media(prefers-reduced-motion:reduce){.hero::before{animation:none;transform:none}}
+@media print{.guide-update-banner{display:none!important}.hero::before,.hero::after{display:none}}
