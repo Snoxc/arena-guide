@@ -42,7 +42,7 @@
 				document.querySelector('meta[name=theme-color]').content = dark ? '#202020' : '#ffffff'
 				theme.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему')
 				theme.setAttribute('aria-pressed', String(dark))
-				theme.title = dark ? 'Включить светлую тему' : 'Включить тёмную тему'
+				theme.removeAttribute('title')
 			}
 			try {
 				applyTheme(localStorage.getItem('arena-theme') ? localStorage.getItem('arena-theme') === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches)

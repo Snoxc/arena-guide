@@ -1,0 +1,45 @@
+/* Lightweight snow from Alexandr Guide v5.11.0, isolated from the original layout. */
+.snow-toggle{
+  color:#57a6d2;
+  display:inline-grid;
+  place-items:center;
+  flex-shrink:0;
+}
+.snow-toggle[aria-pressed="false"]{color:var(--muted);}
+.snow-toggle svg{width:22px;height:22px;display:block;}
+/* No strike-through when snow is disabled: icon just becomes gray. */
+.snow-overlay{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:20;
+  contain:layout paint;
+  isolation:isolate;
+}
+.snow-overlay:not(.is-active){display:none;}
+.snowflake{
+  position:absolute;
+  top:-26px;
+  left:var(--flake-x);
+  display:block;
+  width:var(--flake-size);
+  height:var(--flake-size);
+  border-radius:50%;
+  background:radial-gradient(circle at 37% 35%,#fff,#e4f3ff 78%);
+  opacity:var(--flake-alpha);
+  animation:snow-falling var(--flake-duration) var(--flake-delay) linear infinite;
+  will-change:transform;
+}
+@keyframes snow-falling{
+  from {transform:translate3d(0,-10px,0)}
+  to {transform:translate3d(var(--flake-drift),calc(100vh + 60px),0)}
+}
+@media (max-width:900px){
+ .snow-overlay .snowflake:nth-child(n+21){display:none;}
+}
+@media (max-width:560px){
+ .snow-toggle svg{width:19px;height:19px;}
+ .snow-overlay .snowflake:nth-child(n+13){display:none;}
+}
+@media print{.snow-overlay{display:none!important}.snow-toggle{display:none!important}}

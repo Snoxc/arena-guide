@@ -9,6 +9,8 @@
 		<title>Нейросети — интерактивный гайд | Alexandr</title>
 		<link href="assets/base.css?v=5.10.13" rel="stylesheet" />
 		<link href="assets/interactive.css?v=5.10.13" rel="stylesheet" />
+		<link href="assets/snow.css?v=1.0.0" rel="stylesheet" />
+		<link href="assets/header-clean.css?v=5.10.15" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com" rel="preconnect" />
 		<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
 		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet" />
@@ -27,6 +29,9 @@
 					><span>Alexandr<span class="brand-sub">Нейросети</span></span></a
 				>
 				<div class="header-right">
+					<button type="button" class="icon-button snow-toggle" id="snow-toggle" aria-label="Выключить снег" aria-pressed="true">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M3.34 7l17.32 10M3.34 17 20.66 7M8.8 5.2 12 8l3.2-2.8M8.8 18.8 12 16l3.2 2.8M4.7 12.7 8 11l-.4-3.4M19.3 11.3 16 13l.4 3.4"/></svg>
+                    </button>
 					<div class="reading-bar" id="reading-bar">
 						<div class="search-panel" hidden="" id="search-panel">
 							<label class="search-box"
@@ -55,7 +60,6 @@
 							aria-label="Поиск по инструкции"
 							class="icon-button"
 							id="search-toggle"
-							title="Поиск по инструкции"
 							type="button"
 						>
 							<span aria-hidden="true" class="ui-icon"
@@ -81,7 +85,7 @@
 							><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24">
 								<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z" /></svg></span
 						><span id="saved-count" class="favorites-count" hidden>0</span></button
-					><button aria-label="Сменить тему" class="icon-button" id="theme" title="Сменить тему" type="button">
+					><button aria-label="Сменить тему" class="icon-button" id="theme" type="button">
 						<span class="theme-moon"
 							><span aria-hidden="true" class="ui-icon"
 								><i class="hgi hgi-stroke hgi-moon-02"></i
@@ -94,12 +98,7 @@
 									<circle cx="12" cy="12" r="4"></circle>
 									<path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg></span
 						></span></button
-					><a aria-label="Открыть Arena.ai" class="icon-button arena-link" href="https://arena.ai/" rel="noopener noreferrer" target="_blank" title="Открыть Arena.ai"
-						><span aria-hidden="true" class="ui-icon"
-							><i class="hgi hgi-stroke hgi-arrow-up-right-01"></i
-							><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
-								<path d="M6 18 18 6M7 6h11v11"></path></svg></span
-					></a>
+					>
 				</div>
 			</div>
 		</header>
@@ -2225,8 +2224,9 @@
 		</nav>
 		<script src="content.js?v=5.10.13"></script>
 		<script src="assets/compat.js?v=5.10.13"></script>
-		<script src="assets/app.js?v=5.10.13"></script>
+		<script src="assets/app.js?v=5.10.15"></script>
 		<script src="assets/interactive.js?v=5.10.13"></script>
 		<script src="assets/views.js?v=5.10.13"></script>
+		<script src="assets/snow.js?v=1.0.0" defer></script>
 	</body>
 </html>

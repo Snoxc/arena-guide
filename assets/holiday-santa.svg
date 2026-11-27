@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 172" role="img" aria-label="Дед Мороз">
+<defs>
+<linearGradient id="coat" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#e55f59"/><stop offset="1" stop-color="#aa2943"/></linearGradient>
+<linearGradient id="hat" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#e45f54"/><stop offset="1" stop-color="#ad2b43"/></linearGradient>
+<linearGradient id="snow" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#d3e4ef"/></linearGradient>
+</defs>
+<ellipse cx="78" cy="164" rx="52" ry="6" fill="#1c4e62" opacity=".12"/>
+<path d="M37 133c1-24 16-41 42-41 26 0 41 20 42 44l-10 13H48Z" fill="url(#coat)" stroke="#982945" stroke-width="2"/>
+<path d="M74 94h14l9 48H68Z" fill="url(#snow)"/><path d="M42 137c22 8 53 9 73 0l2 14H40Z" fill="url(#snow)"/>
+<rect x="51" y="130" width="53" height="10" rx="4" fill="#734845"/><rect x="72" y="128" width="19" height="14" rx="4" fill="#f1c979"/><rect x="77" y="131" width="8" height="8" rx="1.6" fill="#754c4a"/>
+<path d="M43 119q-10 11-5 20c3 7 11 9 16 1l8-13" fill="url(#coat)" stroke="#a72f3c" stroke-width="2"/><ellipse cx="51" cy="140" rx="11" ry="8" fill="url(#snow)"/>
+<path d="M116 115q12 9 13 19c1 9-10 14-16 7l-6-12" fill="url(#coat)" stroke="#a72f3c" stroke-width="2"/><ellipse cx="118" cy="137" rx="10" ry="8" fill="url(#snow)"/>
+<path d="M53 152v9h20v-9m13 0v9h19v-9" fill="#334a62" stroke="#243549" stroke-width="2"/>
+<path d="M42 63C32 46 49 29 62 25c24-8 53 6 57 36L98 67Z" fill="url(#hat)" stroke="#a62a40" stroke-width="2"/>
+<path d="M62 29c8-14 28-19 47-19 19 0 27 19 26 36" fill="url(#hat)" stroke="#a62a40" stroke-width="2"/><circle cx="135" cy="49" r="12" fill="url(#snow)"/>
+<rect x="41" y="55" width="78" height="17" rx="8.5" fill="url(#snow)" stroke="#d0e0ed" stroke-width="1.2"/>
+<ellipse cx="79" cy="87" rx="31" ry="30" fill="#f8c5a5" stroke="#dfaf99" stroke-width="1.4"/>
+<path d="M57 96c-11 2-13 16-6 26 1 18 24 22 29 23 8-1 29-7 31-23 6-11 2-22-7-26-7 10-18 12-24 9-5 3-17 1-23-9Z" fill="url(#snow)" stroke="#c0d5e5" stroke-width="1.2"/>
+<path d="M62 97q9-9 17 1 10-9 19-1" fill="none" stroke="#f9ffff" stroke-width="11" stroke-linecap="round"/>
+<path d="M67 103q12 11 24 0" fill="none" stroke="#c4d6e1" stroke-width="1.7"/>
+<ellipse cx="80" cy="96" rx="8" ry="5" fill="#efa986"/>
+<circle cx="67" cy="82" r="2.7" fill="#304154"/><circle cx="92" cy="82" r="2.7" fill="#304154"/>
+<path d="m58 75 14-2m14 0 14 2" fill="none" stroke="#8b6162" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M70 115q10 6 21 0" fill="none" stroke="#bf8090" stroke-width="2" stroke-linecap="round"/>
+<path d="M24 38q-7 7-5 16m122 36q6 10 2 19" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+<g fill="#bedef3"><circle cx="20" cy="24" r="2.5"/><circle cx="137" cy="73" r="3"/><circle cx="27" cy="97" r="2.4"/></g>
+</svg>

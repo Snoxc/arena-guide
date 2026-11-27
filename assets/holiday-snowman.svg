@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 137" role="img" aria-label="Снеговик">
+<defs><linearGradient id="snow" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#bddcf0"/></linearGradient><linearGradient id="cap" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#385b80"/><stop offset="1" stop-color="#1a385a"/></linearGradient></defs>
+<ellipse cx="61" cy="130" rx="46" ry="6" fill="#3c7189" opacity=".12"/>
+<path d="m22 92-13-8m13 8-9 3m9-3 0-9m77 10 13-12m-13 12 9 1m-9-1-4-10" stroke="#98714b" stroke-width="4.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="61" cy="92" r="36" fill="url(#snow)" stroke="#a7cadc" stroke-width="2"/>
+<circle cx="61" cy="49" r="28" fill="url(#snow)" stroke="#a7cadc" stroke-width="2"/>
+<path d="M38 56c13 5 30 6 47-1" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+<rect x="36" y="13" width="49" height="16" rx="3" fill="url(#cap)"/><path d="M44 13V3c0-2 2-3 4-3h25c3 0 4 1 4 3v10" fill="url(#cap)"/>
+<rect x="42" y="11" width="37" height="5" rx="2" fill="#e4a65f"/><rect x="27" y="25" width="66" height="8" rx="4" fill="#274669"/>
+<circle cx="51" cy="46" r="3.2" fill="#1c3349"/><circle cx="70" cy="46" r="3.2" fill="#1c3349"/>
+<path d="M60 51 82 55 59 57Z" fill="#e99041" stroke="#db7826" stroke-width="1"/>
+<path d="M51 61q10 7 20 0" stroke="#48596b" stroke-width="2" fill="none" stroke-linecap="round"/>
+<path d="M40 72q21 9 41-1l-3 10q-13 8-25 0l-1 18-11-1 2-23Z" fill="#c94848"/>
+<path d="M43 78q20 8 34-1" stroke="#fbac90" stroke-width="2" fill="none" opacity=".75"/>
+<circle cx="60" cy="89" r="3.4" fill="#34516a"/><circle cx="60" cy="105" r="3.4" fill="#34516a"/>
+<path d="M32 114q24 18 57 0" fill="none" stroke="#fff" stroke-width="3" opacity=".8"/>
+<circle cx="18" cy="42" r="2.5" fill="#daedfc"/><circle cx="103" cy="54" r="2" fill="#daedfc"/><circle cx="100" cy="17" r="3" fill="#d5eaf9"/>
+</svg>

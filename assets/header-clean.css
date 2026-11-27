@@ -1,0 +1,45 @@
+/* v5.10.15 — precise header controls only. Other site styles are untouched. */
+/* Hover and pointer feedback: ONLY icon colour changes, never a highlight panel. */
+.header-right .icon-button,
+.header-right .icon-button:hover,
+.header-right .icon-button:active,
+.header-right .icon-button:focus-visible,
+.header-right .icon-button[aria-expanded="true"],
+.header-right .icon-button.is-pressed {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  border: 0 !important;
+  transition: color .18s ease !important;
+}
+.header-right .icon-button:focus-visible {
+  /* Keyboard users can still recognize the focused control via its icon colour. */
+  outline: none;
+}
+/* Dedicated icon palettes for the three controls. */
+.header-right #search-toggle {color: var(--text)}
+.header-right #search-toggle:hover,
+.header-right #search-toggle:focus-visible {color: #548ec8 !important}
+.header-right #saved-toggle {color: #e85c7a}
+.header-right #saved-toggle:hover,
+.header-right #saved-toggle:focus-visible {color: #b92b59 !important}
+.header-right #theme {color: var(--text)}
+.header-right #theme:hover,
+.header-right #theme:focus-visible {color: #deaa47 !important}
+.header-right #snow-toggle[aria-pressed="true"] {color: #57a6d2}
+.header-right #snow-toggle[aria-pressed="true"]:hover,
+.header-right #snow-toggle[aria-pressed="true"]:focus-visible {color: #2284ba !important}
+.header-right #snow-toggle[aria-pressed="false"] {color: var(--muted)}
+.header-right #snow-toggle[aria-pressed="false"]:hover,
+.header-right #snow-toggle[aria-pressed="false"]:focus-visible {color: var(--text) !important}
+/* Preserve big touch targets, including on mobile. */
+.header-right #snow-toggle {width:44px;height:44px;flex:0 0 44px}
+/* The bottom navigation has its own search button. Hide ONLY the header search
+   when that bar is available. The search panel remains functional on mobile. */
+@media (max-width:900px) {
+  .header-right #search-toggle {display:none!important}
+  .header-right #snow-toggle {width:42px;height:44px;flex-basis:42px}
+}
